@@ -1,11 +1,10 @@
-import {combineReducers} from "redux";
-import counterReducer from "./counter";
-import toggleShowReducer from "./toggleShow";
+import { combineReducers } from "redux";
+import { toggleShowReducer } from "./toggleShow";
+import { pokemonsReducer } from "./pokemonsReducer";
 
-
- const allReducers = combineReducers({
-    counter:counterReducer,
-    isShow: toggleShowReducer,
-})
+const allReducers = combineReducers({
+  toggleShowReducer: toggleShowReducer,
+  pokemonsReducer: pokemonsReducer,
+});
 
 export default allReducers;

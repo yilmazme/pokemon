@@ -1,3 +1,8 @@
+.mainContainer{
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
 .cardsContainer{
     display: flex;
     justify-content: center;
@@ -8,6 +13,18 @@
 .card{
     width: 10rem;
     height: 14rem;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.catchContainer{
+display: flex;
+flex-wrap: wrap;
+}
+
+.catchCard{
+    width: 6rem;
+    height: 10rem;
     text-align: center;
     border: 1px solid black;
 }

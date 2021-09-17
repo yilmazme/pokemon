@@ -2,6 +2,7 @@
 export const GET_ALL = "GET_ALL";
 export const IS_SHOW = "IS_SHOW";
 export const ERROR = "ERROR";
+export const IS_CATCH = "IS_CATCH"
 
 export const getPokemons = (val) => {
   return {
@@ -17,6 +18,13 @@ export const handleErrror = (val) => {
   };
 };
 
+
+export const toggleCatch = (val) => {
+  return {
+    type: IS_CATCH,
+    payload:val
+  };
+};
 
 export const toggleShow = () => {
   return {

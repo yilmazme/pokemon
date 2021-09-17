@@ -10,14 +10,16 @@ export const getPokemons = (val) => {
   };
 };
 
-export const toggleShow = () => {
-  return {
-    type: IS_SHOW,
-  };
-};
 export const handleErrror = (val) => {
   return {
     type: ERROR,
     payload: val,
+  };
+};
+
+
+export const toggleShow = () => {
+  return {
+    type: IS_SHOW,
   };
 };

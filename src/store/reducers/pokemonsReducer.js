@@ -6,12 +6,12 @@ const initialState = {
   error: null,
 };
 
-export const pokemonsReducer = (state = initialState, { type, payload }) => {
+export const pokemonsReducer =  (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_ALL:
-      return { ...state, pokemons: payload };
+      return { pokemons:payload, error:null };
     case ERROR:
-      return { ...state, error: payload };
+      return { pokemons: [], error: payload };
     default:
       return state;
   }

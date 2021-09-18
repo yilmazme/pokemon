@@ -2,7 +2,10 @@
 export const GET_ALL = "GET_ALL";
 export const IS_SHOW = "IS_SHOW";
 export const ERROR = "ERROR";
-export const IS_CATCH = "IS_CATCH"
+export const CATCH = "CATCH";
+export const RELEASE = "RELEASE";
+export const ADD_FAVORITE = "ADD_FAVORITE";
+export const REMOVE_FAVORITE = "NOT_FAVORITE";
 
 export const getPokemons = (val) => {
   return {
@@ -19,9 +22,29 @@ export const handleErrror = (val) => {
 };
 
 
-export const toggleCatch = (val) => {
+export const catchPokemon = (val) => {
   return {
-    type: IS_CATCH,
+    type: CATCH,
+    payload:val
+  };
+};
+
+export const releasePokemon = (val) => {
+  return {
+    type: RELEASE,
+    payload:val
+  };
+};
+export const addFavorite = (val) => {
+  return {
+    type: ADD_FAVORITE,
+    payload:val
+  };
+};
+
+export const removeFavorite = (val) => {
+  return {
+    type: REMOVE_FAVORITE,
     payload:val
   };
 };

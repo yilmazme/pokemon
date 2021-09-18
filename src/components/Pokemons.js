@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { getPokemons, handleErrror, toggleCatch } from "../store/actions";
+import { getPokemons, handleErrror, catchPokemon, releasePokemon, addFavorite, removeFavorite } from "../store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import style from "../styles/Pokemons.module.css";
@@ -8,8 +8,9 @@ export default function Pokemons() {
   const pokemons = useSelector((state) => state.pokemonsReducer.pokemons);
   const error = useSelector((state) => state.pokemonsReducer.error);
   const catches = useSelector((state) => state.pokemonsReducer.catches);
+  const favorites = useSelector((state) => state.pokemonsReducer.favorites);
   const dispatch = useDispatch();
-
+  const catchesIds = catches.map((ele)=>ele.id).concat(favorites.map((ele)=>ele.id))
 
   const fetchData = () => {
 
@@ -28,24 +29,45 @@ export default function Pokemons() {
       fetchData()
   }, [])
 
-const handleCatch= async(id)=>{
  
+
+const handleCatch= async(id)=>{
   let catched  = await pokemons.filter((el)=>{
      return el.id === id
   })
-
-  dispatch(toggleCatch(catches.concat(catched)))
+  dispatch(catchPokemon(catches.concat(catched)))
 }
 
 const handleRelease= async(id)=>{
   let catched  = await catches.filter((el)=>{
     return el.id !== id
   })
-  dispatch(toggleCatch(catched))
+  dispatch(releasePokemon(catched))
 }
 
-  console.log("stored error:", error);
+const handleFavoriteRelease= async(id)=>{
+  let catched  = await favorites.filter((el)=>{
+    return el.id !== id
+  })
+  let catched2  = await favorites.filter((el)=>{
+    return el.id === id
+  })
+  dispatch(catchPokemon(catches.concat(catched2)))
+  dispatch(removeFavorite(catched))
+}
 
+const handleFavorite= async(id)=>{
+  let favorite  = await catches.filter((el)=>{
+     return el.id === id
+  })
+  let favorite2  = await catches.filter((el)=>{
+    return el.id !== id
+ })
+ dispatch(releasePokemon(favorite2))
+  dispatch(addFavorite(favorites.concat(favorite)))
+}
+  console.log("stored error:", error);
+console.log(catchesIds)
   return (
     <div className={style.mainContainer}>
       {pokemons.length === 0 ? <p>{error}</p> :
@@ -53,7 +75,7 @@ const handleRelease= async(id)=>{
           {
             pokemons.map((pok, ind) => {
               return (
-                <div key={pok.id} className={style.card}>
+                <div key={pok.id} className={catchesIds.includes(pok.id)? style.catched:style.card}>
                   <img src={pok.sprites["front_default"]} alt="sssss" />
                   <p>{pok.species.name}</p>
                   <p>{pok.id}</p>
@@ -65,17 +87,30 @@ const handleRelease= async(id)=>{
         
         </div>
       }
+      <div className={style.chart}>
       <div className={style.catchContainer}>
       {catches && catches.map((el)=>{
             return (
               <div className={style.catchCard} key={el.id}>
                 <img src={el.sprites["front_default"]} alt="sssss" />
-                  <p>{el.species.name}</p>
-                  <p>{el.id}</p>
+                
                   <button onClick={()=>handleRelease(el.id)}>Release</button>
+                  <button onClick={()=>handleFavorite(el.id)}>Add Favorites</button>
             </div>
             )
           })}
+      </div>
+      <div className={style.favoriteContainer}>
+      {favorites && favorites.map((el)=>{
+            return (
+              <div className={style.catchCard} key={el.id}>
+                <img src={el.sprites["front_default"]} alt="sssss" />
+        
+                  <button onClick={()=>handleFavoriteRelease(el.id)}>Release</button>
+            </div>
+            )
+          })}
+      </div>
       </div>
     </div>
   );

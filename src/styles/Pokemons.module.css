@@ -1,3 +1,11 @@
+@media (prefers-color-scheme: dark) {
+   p{
+    background-color: #1F2023;
+    color: #DADADA;
+   }
+  }
+
+
 .mainContainer{
     background-image: url(../photos/backGround.jpg);
     background-position: center;
@@ -6,6 +14,9 @@
     grid-template-columns: 70% 30%;
     justify-content: center;
     
+}
+.mainDark{
+    background-image: url(../photos/darkBack.jpg);
 }
 
 .cardsContainer{
@@ -17,30 +28,39 @@
     gap: 2rem 3rem;
     margin: auto;
     margin-top: 3rem;
-
-
-
+   
+}
+.cardsContainer p{
+    text-align: left;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 1rem;
+    margin-top: 0;
 }
 
 .card{
-    background-color: seashell;
+    background-color: rgb(228, 202, 184);
     width: 10rem;
     height: 14rem;
     text-align: center;
-    border: 1px solid black;
+    border: 2px solid rgb(216, 173, 30);
+    border-radius: 5px;
 }
 .catched{
-    background-color: sienna;
+    background-color: rgb(161, 83, 46);
     width: 10rem;
     height: 14rem;
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid rgb(12, 12, 12);
+    border: 2px solid rgb(216, 173, 30);
+   
+    border-radius: 5px;
 }
 .catched .pokeball{
     display: none;
 }
 .chart{
-    background-color: snow;
+background-color: snow;
  position: fixed;
  top: 2rem;
  right: 0;
@@ -57,27 +77,40 @@ align-items: center;
     position: relative;
     display: grid;
     grid-template-columns: auto auto auto;
-    justify-content: space-around;
+    justify-content: stretch;
+    gap:1rem 0;
     padding: 1rem;
     border-bottom: 1px solid brown;
     width: 100%;
     height: 50%;
     overflow-y: scroll;
     margin: auto;
-    background-color: rgb(40, 177, 177);
+    background-color: rgba(40, 177, 177, 0.205);
+ 
+}
+.darkCatch{
+    background-color: rgb(19, 12, 12);
+    color: #fff;
+}
+.dark{
+  
+    background-color:#1F2023  !important;
+    color: #fff!important;
 }
 .favoriteContainer{
     position: relative;
     display: grid;
     grid-template-columns: auto auto auto;
-    justify-content: space-around;
+    justify-content: stretch;
+    gap:1rem 0;
     padding: 1rem;
     border-top: 1px solid brown;
     width: 100%;
     height: 50%;
     overflow-y: scroll;
     margin: auto;
-    background-color: rgb(240, 56, 95);
+    background-color: rgba(240, 56, 96, 0.315);
+    padding-bottom:2rem ;
    }
 
 .catchCard{
@@ -91,7 +124,7 @@ align-items: center;
     width: 1.6rem;
     height: 1.6rem;
     cursor: pointer;
-    animation: pokeAnimation 500ms linear  infinite forwards;
+    animation: pokeAnimation 1000ms linear  infinite forwards;
 }
 .pokeballStatic{
     width: 1.6rem;
@@ -161,7 +194,7 @@ align-items: center;
     width: fit-content;
 }
 .usage p{
-    margin-right: 1rem;
+    margin-right: 0.5rem;
 }
 .usage img:hover{
     background-color: white;

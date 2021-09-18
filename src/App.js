@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Pokemons from "./components/Pokemons";
 import Catches from "./components/Catches";
 
+
 function App() {
   return (
     <div className="App">

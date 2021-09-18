@@ -9,8 +9,9 @@ export default function Pokemons() {
   const error = useSelector((state) => state.pokemonsReducer.error);
   const catches = useSelector((state) => state.pokemonsReducer.catches);
   const favorites = useSelector((state) => state.pokemonsReducer.favorites);
-  const dispatch = useDispatch();
   const catchesIds = catches.map((ele)=>ele.id).concat(favorites.map((ele)=>ele.id))
+  const dispatch = useDispatch();
+
 
   const fetchData = () => {
 
@@ -46,24 +47,24 @@ const handleRelease= async(id)=>{
 }
 
 const handleFavoriteRelease= async(id)=>{
-  let catched  = await favorites.filter((el)=>{
+  let released  = await favorites.filter((el)=>{
     return el.id !== id
   })
-  let catched2  = await favorites.filter((el)=>{
+  let catched  = await favorites.filter((el)=>{
     return el.id === id
   })
-  dispatch(catchPokemon(catches.concat(catched2)))
-  dispatch(removeFavorite(catched))
+  dispatch(catchPokemon(catches.concat(catched)))
+  dispatch(removeFavorite(released))
 }
 
 const handleFavorite= async(id)=>{
   let favorite  = await catches.filter((el)=>{
      return el.id === id
   })
-  let favorite2  = await catches.filter((el)=>{
+  let released  = await catches.filter((el)=>{
     return el.id !== id
  })
- dispatch(releasePokemon(favorite2))
+ dispatch(releasePokemon(released))
   dispatch(addFavorite(favorites.concat(favorite)))
 }
   console.log("stored error:", error);

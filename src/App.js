@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 import Pokemons from "./components/Pokemons";
 
 
@@ -10,7 +10,9 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            <h3>hola</h3>
+          <Link to="/pokemons">
+            pokemons
+          </Link>
           </Route>
           <Route path="/pokemons" exact>
             <Pokemons />

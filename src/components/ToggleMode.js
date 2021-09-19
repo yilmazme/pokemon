@@ -14,7 +14,7 @@ const DarkModeToggle = ({handleTheme}) => {
         }
       }, [isDark]); 
 
-
+console.log("toggle comp rendered")
     return (
       <Toggle
         className="dark-mode-toggle"
@@ -26,4 +26,4 @@ const DarkModeToggle = ({handleTheme}) => {
     );
   };
 
-  export default DarkModeToggle
+  export default React.memo(DarkModeToggle)

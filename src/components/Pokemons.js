@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { getPokemons, handleErrror, catchPokemon, releasePokemon, addFavorite, removeFavorite } from "../store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -15,7 +15,7 @@ import Pagination from "./Pagination";
 
 
 
-export default function Pokemons() {
+ function Pokemons() {
   //bunlar component için storedan bağımsız geçici stateler
   const [darkTheme, setDarkTheme] = useState(false);
   const [currentPage, setCurrentPage] = useState("https://pokeapi.co/api/v2/pokemon/")
@@ -32,6 +32,7 @@ export default function Pokemons() {
   const dispatch = useDispatch();
 
   // childdan(paginationdan) toggle verisini almak için
+ 
   const handleTheme = (c) => {
     setDarkTheme(c)
   }
@@ -106,10 +107,9 @@ export default function Pokemons() {
     dispatch(addFavorite(favorites.concat(favorite)))
   }
 
-  // react paronayaktır sonsuz rerenderı görmek için en azından console.log 
-  console.log("stored error:", error);
-  console.log(catchesIds)
-  console.log(darkTheme)
+  // 
+  console.log("pokemons rendered");
+
 
   // returnde(card containerda) 3 durum var: connection error, loading ve sonuç. ternary ile bağlanmış
   return (
@@ -126,19 +126,14 @@ export default function Pokemons() {
 
         <DarkModeToggle handleTheme={handleTheme} />
       </div>
-      <div className={style.pagination}>
-        <Pagination
-          getPrevPage={prevPage&&!loading ? getPrevPage : null}
-          getNextPage={nextPage&&!loading ? getNextPage : null}
-        />
-      </div>
-      {error ? <div className={style.connectionError}>
-
+      
+      {error ? 
+      <div className={style.connectionError}>
         <p>{error} <br></br>There is a problem with source or your connection</p>
       </div> : loading ?
-        <div className={style.loading}>
+      <div className={style.loading}>
           <p>Loading...</p>
-        </div> :
+      </div> :
         <div className={style.cardsContainer}>
 
           {
@@ -155,7 +150,12 @@ export default function Pokemons() {
               );
             })
           }
-
+          <div className={style.pagination}>
+        <Pagination
+          getPrevPage={prevPage&&!loading ? getPrevPage : null}
+          getNextPage={nextPage&&!loading ? getNextPage : null}
+        />
+        </div>
         </div>
       }
       <div className={style.chart}>
@@ -195,3 +195,5 @@ export default function Pokemons() {
     </div>
   );
 }
+
+export default React.memo(Pokemons);

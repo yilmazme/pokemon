@@ -1,22 +1,33 @@
 import React from 'react'
 
-export default function Pagination({getNextPage, getPrevPage}) {
+function Pagination({getNextPage, getPrevPage}) {
 
-const style ={
-    width: "3rem",
+const styleGo ={
+    width: "2rem",
+    height: "2rem",
     backgroundColor: "green",
     color: "white",
-    cursor: "pointer"
+    cursor: "pointer",
+    borderRadius: "50%",
 }
-
+const styleStop ={
+    width: "2rem",
+    height: "2rem",
+    backgroundColor: "red",
+    color: "white",
+    borderRadius: "50%",
+}
+console.log("pagination rendered")
     return (
         <div>
-            {getPrevPage ? <button style={style} onClick={getPrevPage}>Prev</button> :
-                        <button style={style}>---</button> 
+            {getPrevPage ? <button style={styleGo} onClick={getPrevPage}>{"<<"}</button> :
+                        <button style={styleStop}>!</button> 
             }
-           {getNextPage ? <button style={style} onClick={getNextPage}>Next</button>:
-           <button style={style}>---</button>
+           {getNextPage ? <button style={styleGo} onClick={getNextPage}>{">>"}</button>:
+           <button style={styleStop}>!</button>
            }
         </div>
     )
 }
+
+export default React.memo(Pagination);

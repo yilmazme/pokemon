@@ -10,12 +10,14 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-          <Link to="/pokemons">
-            pokemons
-          </Link>
+          <Redirect to="/pokemons">           
+          </Redirect>
           </Route>
           <Route path="/pokemons" exact>
             <Pokemons />
+          </Route>
+          <Route path="/about" exact>
+            
           </Route>
           <Route path="*">
             NO SUCH PATH: <code>{window.location.href}</code>

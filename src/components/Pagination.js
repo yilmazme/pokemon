@@ -17,7 +17,7 @@ const styleStop ={
     color: "white",
     borderRadius: "50%",
 }
-console.log("pagination rendered")
+//console.log("pagination rendered")
     return (
         <div>
             {getPrevPage ? <button style={styleGo} onClick={getPrevPage}>{"<<"}</button> :

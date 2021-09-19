@@ -106,7 +106,7 @@ function Pokemons() {
   }
 
   // 
-  console.log("pokemons rendered");
+  //console.log("pokemons rendered");
 
 
   // returnde(card containerda) 3 durum var: connection error, loading ve sonuç. ternary ile bağlanmış

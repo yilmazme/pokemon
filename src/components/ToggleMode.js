@@ -14,7 +14,7 @@ const DarkModeToggle = ({handleTheme}) => {
         }
       }, [isDark]); 
 
-console.log("toggle comp rendered")
+//console.log("toggle comp rendered")
     return (
       <Toggle
         className="dark-mode-toggle"

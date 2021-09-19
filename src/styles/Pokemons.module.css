@@ -4,7 +4,11 @@
     color: #DADADA;
    }
   }
-
+  
+  body:after{
+    display:none;
+    content: url(../photos/darkBack.jpg) url(../photos/backGround.jpg);
+}
 
 .mainContainer{
     min-height: 100vh;
@@ -18,9 +22,9 @@
     
 }
 .mainDark{
-    background-image: url(../photos/darkBack.jpg);
-    
+    background-image: url(../photos/darkBack.jpg);   
 }
+
 
 .cardsContainer{
     position: relative;

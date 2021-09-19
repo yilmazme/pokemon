@@ -4,7 +4,7 @@
     color: #DADADA;
    }
   }
-  
+
   body:after{
     display:none;
     content: url(../photos/darkBack.jpg) url(../photos/backGround.jpg);
@@ -92,7 +92,7 @@ align-items: center;
     overflow-y: scroll;
     margin: auto;
     background-color: rgba(40, 177, 177, 0.205);
- 
+    overflow-x: hidden;
 }
 .darkCatch{
     background-color: rgb(19, 12, 12);
@@ -117,6 +117,7 @@ align-items: center;
     margin: auto;
     background-color: rgba(240, 56, 96, 0.315);
     padding-bottom:2rem ;
+    overflow-x: hidden;
    }
 
 .catchCard{
@@ -124,7 +125,18 @@ align-items: center;
     width: 6rem;
     height: 7rem;
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid rgb(10, 57, 187);
+    background-color: rgb(93, 206, 235);
+    color: #1F2023;
+}
+.favCard{
+    position: relative;
+    width: 6rem;
+    height: 7rem;
+    text-align: center;
+    border: 1px solid rgb(233, 186, 31);
+    background-color: rgb(233, 60, 60);
+     color: #1F2023;
 }
 .pokeball{
     width: 1.6rem;

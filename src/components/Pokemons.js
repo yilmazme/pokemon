@@ -8,6 +8,7 @@ import blue from "../photos/blue.png";
 import red from "../photos/red.png";
 import arrow from "../photos/arrow.png"
 import Fade from "react-reveal/Fade";
+import Flash from "react-reveal/Flash";
 import DarkModeToggle from "./ToggleMode"
 import Pagination from "./Pagination";
 
@@ -166,7 +167,7 @@ function Pokemons() {
 
           {catches && catches.map((el) => {
             return (
-              <Fade key={el.id} >
+              <Fade right key={el.id} >
                 <div className={style.catchCard} key={el.id}>
                   <p style={{ fontSize: "10px", margin: "0" }}>{el.name.toUpperCase()}</p>
                   <img src={el.sprites["front_default"]} alt="sssss" />
@@ -182,15 +183,15 @@ function Pokemons() {
         <div className={darkTheme ? style.favoriteContainer + " " + style.dark : style.favoriteContainer}>
           {favorites && favorites.map((el) => {
             return (
-              <Fade key={el.id} >
-                <div className={style.catchCard} key={el.id}>
+              <Flash key={el.id} >
+                <div className={style.favCard} key={el.id}>
                   <p style={{ fontSize: "10px", margin: "0" }}>{el.name.toUpperCase()}</p>
                   <img src={el.sprites["front_default"]} alt="sssss" />
                   <div className={style.cardBtns}>
                     <img className={style.blue} onClick={() => handleFavoriteRelease(el.id)} src={blue} alt="blue" />
                   </div>
                 </div>
-              </Fade>
+              </Flash>
             )
           })}
         </div>

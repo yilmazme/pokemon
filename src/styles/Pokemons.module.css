@@ -7,6 +7,7 @@
 
 
 .mainContainer{
+    min-height: 100vh;
     background-image: url(../photos/backGround.jpg);
     background-position: center;
     background-size: cover;
@@ -17,6 +18,7 @@
 }
 .mainDark{
     background-image: url(../photos/darkBack.jpg);
+    
 }
 
 .cardsContainer{
@@ -201,3 +203,20 @@ align-items: center;
     cursor: default;
 }
  
+.pagination{
+    position: fixed;
+    top: 2rem;
+    left: 34vw;
+    z-index: 5;
+}
+.connectionError p{
+    position: relative;
+    top:30%;
+    background-color: tomato;
+}
+.loading{
+    position: relative;
+    top:30%;
+    background-color: green;
+    height: 3rem;
+}

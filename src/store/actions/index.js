@@ -1,6 +1,5 @@
 //Bu sabitler string değerlerini tekrar tekrar yazmamak için
 export const GET_ALL = "GET_ALL";
-export const IS_SHOW = "IS_SHOW";
 export const ERROR = "ERROR";
 export const CATCH = "CATCH";
 export const RELEASE = "RELEASE";
@@ -49,8 +48,3 @@ export const removeFavorite = (val) => {
   };
 };
 
-export const toggleShow = () => {
-  return {
-    type: IS_SHOW,
-  };
-};

@@ -17,7 +17,8 @@ function App() {
             <Pokemons />
           </Route>
           <Route path="/about" exact>
-            
+          <Redirect to="/pokemons">           
+          </Redirect>
           </Route>
           <Route path="*">
             NO SUCH PATH: <code>{window.location.href}</code>

@@ -207,10 +207,11 @@ align-items: center;
 }
  
 .pagination{
-    grid-column: 2 / 4;
+    grid-column: 1 / span 4;
     text-align: center;
     margin-top: 0;
-    padding: 5px;
+    height: 2rem;
+    margin: 0;
 }
 .connectionError p{
     position: relative;

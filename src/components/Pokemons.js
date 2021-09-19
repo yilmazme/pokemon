@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { getPokemons, handleErrror, catchPokemon, releasePokemon, addFavorite, removeFavorite } from "../store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -13,11 +13,9 @@ import Pagination from "./Pagination";
 
 
 
-
-
- function Pokemons() {
+function Pokemons() {
   //bunlar component için storedan bağımsız geçici stateler
-  const [darkTheme, setDarkTheme] = useState(false);
+  const [darkTheme, setDarkTheme] = useState(true);
   const [currentPage, setCurrentPage] = useState("https://pokeapi.co/api/v2/pokemon/")
   const [nextPage, setNextPage] = useState();
   const [prevPage, setPrevPage] = useState();
@@ -32,7 +30,7 @@ import Pagination from "./Pagination";
   const dispatch = useDispatch();
 
   // childdan(paginationdan) toggle verisini almak için
- 
+
   const handleTheme = (c) => {
     setDarkTheme(c)
   }
@@ -126,40 +124,45 @@ import Pagination from "./Pagination";
 
         <DarkModeToggle handleTheme={handleTheme} />
       </div>
-      
-      {error ? 
-      <div className={style.connectionError}>
-        <p>{error} <br></br>There is a problem with source or your connection</p>
-      </div> : loading ?
-      <div className={style.loading}>
-          <p>Loading...</p>
-      </div> :
-        <div className={style.cardsContainer}>
 
-          {
-            pokemons.map((pok, ind) => {
-              return (
-                <Fade key={pok.id} >
-                  <div className={catchesIds.includes(pok.id) ? style.catched : style.card}>
-                    <img src={pok.sprites["front_default"]} alt="sssss" />
-                    <p>Name: {pok.name}</p>
-                    <p>Experience: {pok.base_experience}</p>
-                    <img className={style.pokeball} onClick={() => handleCatch(pok.id)} src={pokeball} alt="pokeballl" />
-                  </div>
-                </Fade>
-              );
-            })
-          }
-          <div className={style.pagination}>
-        <Pagination
-          getPrevPage={prevPage&&!loading ? getPrevPage : null}
-          getNextPage={nextPage&&!loading ? getNextPage : null}
-        />
-        </div>
-        </div>
+      {error ?
+        <div className={style.connectionError}>
+          <p>{error} <br></br>There is a problem with source or your connection</p>
+        </div> : loading ?
+          <div className={style.loading}>
+            <p>Loading...</p>
+          </div> :
+          <div className={style.cardsContainer}>
+              <div className={style.pagination}>
+              <Pagination
+                getPrevPage={prevPage && !loading ? getPrevPage : null}
+                getNextPage={nextPage && !loading ? getNextPage : null}
+              />
+            </div>
+            {
+              pokemons.map((pok, ind) => {
+                return (
+                  <Fade key={pok.id} >
+                    <div className={catchesIds.includes(pok.id) ? style.catched : style.card}>
+                      <img src={pok.sprites["front_default"]} alt="sssss" />
+                      <p>Name: {pok.name}</p>
+                      <p>Experience: {pok.base_experience}</p>
+                      <img className={style.pokeball} onClick={() => handleCatch(pok.id)} src={pokeball} alt="pokeballl" />
+                    </div>
+                  </Fade>
+                );
+              })
+            }
+            <div className={style.pagination}>
+              <Pagination
+                getPrevPage={prevPage && !loading ? getPrevPage : null}
+                getNextPage={nextPage && !loading ? getNextPage : null}
+              />
+            </div>
+          </div>
       }
       <div className={style.chart}>
-        <div className={darkTheme ? style.catchContainer + " " + style.darkCatch : style.catchContainer}>
+        <div data-testid="catchContainer" className={darkTheme ? style.catchContainer + " " + style.darkCatch : style.catchContainer}>
 
           {catches && catches.map((el) => {
             return (

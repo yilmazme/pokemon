@@ -4,7 +4,7 @@ import "react-toggle/style.css"
 
 
 const DarkModeToggle = ({handleTheme}) => {
-    const [isDark, setIsDark] = useState(true);
+    const [isDark, setIsDark] = useState(false);
   
     useEffect(() => {
         if (isDark) {
@@ -20,7 +20,7 @@ console.log("toggle comp rendered")
         className="dark-mode-toggle"
         checked={isDark}
         onChange={({ target }) => {setIsDark(target.checked); handleTheme(isDark)}}
-        icons={{ checked: "🌙", unchecked: "🔆" }}
+        icons={{ checked: "🔆", unchecked: "🌙" }}
         aria-label="Dark mode toggle"
       />
     );

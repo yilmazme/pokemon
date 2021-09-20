@@ -1,242 +1,286 @@
 @media (prefers-color-scheme: dark) {
-   p{
-    background-color: #1F2023;
-    color: #DADADA;
-   }
+  p {
+    background-color: #1f2023;
+    color: #dadada;
   }
-
-  body:after{
-    display:none;
-    content: url(../photos/darkBack.jpg) url(../photos/backGround.jpg);
 }
 
-.mainContainer{
-    min-height: 100vh;
-    background-image: url(../photos/backGround.jpg);
-    background-position: left top;
-    background-size: 72% 100vh;
-    background-repeat: repeat-y;
-    display: grid;
-    grid-template-columns: 70% 30%;
-    justify-content: center;
-    
-}
-.mainDark{
-    background-image: url(../photos/darkBack.jpg);   
+body:after {
+  display: none;
+  content: url(../photos/darkBack.jpg) url(../photos/backGround.jpg);
 }
 
-
-.cardsContainer{
-    position: relative;
-    width: fit-content;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem 3rem;
-    margin: auto;
-    margin-top: 3rem;
-   
+.mainContainer {
+  min-height: 100vh;
+  background-image: url(../photos/backGround.jpg);
+  background-position: left top;
+  background-size: 72% 100vh;
+  background-repeat: repeat-y;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  justify-content: center;
 }
-.cardsContainer p{
-    text-align: left;
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 1rem;
-    margin-top: 0;
+.mainDark {
+  background-image: url(../photos/darkBack.jpg);
 }
 
-.card{
-    background-color: rgb(228, 202, 184);
-    width: 10rem;
-    height: 14rem;
-    text-align: center;
-    border: 2px solid rgb(216, 173, 30);
-    border-radius: 5px;
+.cardsContainer {
+  position: relative;
+  width: fit-content;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem 3rem;
+  margin: auto;
+  margin-top: 3rem;
 }
-.catched{
-    background-color: rgb(161, 83, 46);
-    width: 10rem;
-    height: 14rem;
-    text-align: center;
-    border: 1px solid rgb(12, 12, 12);
-    border: 2px solid rgb(216, 173, 30);
-   
-    border-radius: 5px;
-}
-.catched .pokeball{
-    display: none;
-}
-.chart{
-background-color: snow;
- position: fixed;
- top: 2rem;
- right: 0;
- width: 30%;
-height: 100vh;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-align-items: center;
-
+.cardsContainer p {
+  text-align: left;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 1rem;
+  margin-top: 0;
 }
 
-.catchContainer{
-    position: relative;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    justify-content: stretch;
-    gap:1rem 0;
-    padding: 1rem;
-    border-bottom: 1px solid brown;
-    width: 100%;
-    height: 50%;
-    overflow-y: scroll;
-    margin: auto;
-    background-color: rgba(40, 177, 177, 0.205);
-    overflow-x: hidden;
+.card {
+  background-color: rgb(228, 202, 184);
+  width: 10rem;
+  height: 14rem;
+  text-align: center;
+  border: 2px solid rgb(216, 173, 30);
+  border-radius: 5px;
 }
-.darkCatch{
-    background-color: rgb(19, 12, 12);
-    color: #fff;
-}
-.dark{
-  
-    background-color:#1F2023  !important;
-    color: #fff!important;
-}
-.favoriteContainer{
-    position: relative;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    justify-content: stretch;
-    gap:1rem 0;
-    padding: 1rem;
-    border-top: 1px solid brown;
-    width: 100%;
-    height: 50%;
-    overflow-y: scroll;
-    margin: auto;
-    background-color: rgba(240, 56, 96, 0.315);
-    padding-bottom:2rem ;
-    overflow-x: hidden;
-   }
+.catched {
+  background-color: rgb(161, 83, 46);
+  width: 10rem;
+  height: 14rem;
+  text-align: center;
+  border: 1px solid rgb(12, 12, 12);
+  border: 2px solid rgb(216, 173, 30);
 
-.catchCard{
-    position: relative;
-    width: 6rem;
-    height: 7rem;
-    text-align: center;
-    border: 1px solid rgb(10, 57, 187);
-    background-color: rgb(93, 206, 235);
-    color: #1F2023;
+  border-radius: 5px;
 }
-.favCard{
-    position: relative;
-    width: 6rem;
-    height: 7rem;
-    text-align: center;
-    border: 1px solid rgb(233, 186, 31);
-    background-color: rgb(233, 60, 60);
-     color: #1F2023;
+.catched .pokeball {
+  display: none;
 }
-.pokeball{
-    width: 1.6rem;
-    height: 1.6rem;
-    cursor: pointer;
-    animation: pokeAnimation 1000ms linear  infinite forwards;
+.chart {
+  background-color: snow;
+  position: fixed;
+  top: 2rem;
+  right: 0;
+  width: 30%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
-.pokeball:active{
-    width: 3rem;
-    height: 3rem;
+
+.catchContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: stretch;
+  gap: 1rem 0;
+  padding: 1rem;
+  border-bottom: 1px solid brown;
+  width: 100%;
+  height: 50%;
+  overflow-y: scroll;
+  margin: auto;
+  background-color: rgba(40, 177, 177, 0.205);
+  overflow-x: hidden;
 }
-.pokeballStatic{
-    width: 1.6rem;
-    height: 1.6rem;
-    cursor: pointer;
+.darkCatch {
+  background-color: rgb(19, 12, 12);
+  color: #fff;
 }
-.red{
-    width: 1.2rem;
-    height: 1.2rem;
-    cursor: pointer;
+.dark {
+  background-color: #1f2023 !important;
+  color: #fff !important;
 }
-.blue{
-    width: 1.2rem;
-    height: 1.2rem;
-    cursor: pointer;
+.favoriteContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: stretch;
+  gap: 1rem 0;
+  padding: 1rem;
+  border-top: 1px solid brown;
+  width: 100%;
+  height: 50%;
+  overflow-y: scroll;
+  margin: auto;
+  background-color: rgba(240, 56, 96, 0.315);
+  padding-bottom: 3rem;
+  overflow-x: hidden;
 }
-.arrow{
-    width: 1.2rem;
-    height: 1.2rem;
-    cursor: pointer;
+
+.catchCard {
+  position: relative;
+  width: 6rem;
+  height: 7rem;
+  text-align: center;
+  border: 1px solid rgb(10, 57, 187);
+  background-color: rgb(93, 206, 235);
+  color: #1f2023;
+}
+.favCard {
+  position: relative;
+  width: 6rem;
+  height: 7rem;
+  text-align: center;
+  border: 1px solid rgb(233, 186, 31);
+  background-color: rgb(233, 60, 60);
+  color: #1f2023;
+}
+.pokeball {
+  width: 1.6rem;
+  height: 1.6rem;
+  cursor: pointer;
+  animation: pokeAnimation 1000ms linear infinite forwards;
+}
+.pokeball:active {
+  width: 3rem;
+  height: 3rem;
+}
+.pokeballStatic {
+  width: 1.6rem;
+  height: 1.6rem;
+  cursor: pointer;
+}
+.red {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+.blue {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+.arrow {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
 }
 
 @keyframes pokeAnimation {
-    0%{
+  0% {
     width: 1.6rem;
     height: 1.6rem;
-    }
-    50%{
-        width: 2rem;
-        height: 2rem;
-    }
-    100%{
-        width: 1.6rem;
-        height: 1.6rem;
-    }
+  }
+  50% {
+    width: 2rem;
+    height: 2rem;
+  }
+  100% {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
 }
-.count{
-   position: relative;
-    font-weight: 600;
-    font-size: 12px;
+.count {
+  position: relative;
+  font-weight: 600;
+  font-size: 12px;
 }
-.cardBtns{
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    position: absolute;
-    bottom: 1px;
+.cardBtns {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  bottom: 1px;
 }
 
-.span{
-    position: fixed;
-    top:0;
-    width: 100%;
-    height: 2rem;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    color: white;
-    background-color: red;
-    z-index: 4;
+.span {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: white;
+  background-color: red;
+  z-index: 4;
 }
 
-.usage{
+.usage {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: fit-content;
+}
+.usage p {
+  margin-right: 0.5rem;
+}
+.usage img:hover {
+  cursor: default;
+}
+
+.pagination {
+  grid-column: 1 / span 4;
+  text-align: center;
+  margin-top: 0;
+  height: 2rem;
+  margin: 0;
+}
+.connectionError p {
+  position: relative;
+  top: 30%;
+  background-color: tomato;
+}
+.loading {
+  position: relative;
+  top: 30%;
+  background-color: green;
+  height: 3rem;
+}
+
+@media (max-width: 805px) {
+  .mainContainer {
+    min-height: 100vh;
+    background-image: url(../photos/backGround.jpg);
+    background-position: left top;
+    background-size: 100% 100vh;
+    background-repeat: repeat-y;
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .mainDark {
+    background-image: url(../photos/darkBack.jpg);
+  }
+
+  .cardsContainer {
+    position: relative;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    width: fit-content;
-}
-.usage p{
-    margin-right: 0.5rem;
-}
-.usage img:hover{
-    cursor: default;
-}
- 
-.pagination{
-    grid-column: 1 / span 4;
-    text-align: center;
-    margin-top: 0;
-    height: 2rem;
-    margin: 0;
-}
-.connectionError p{
-    position: relative;
-    top:30%;
-    background-color: tomato;
-}
-.loading{
-    position: relative;
-    top:30%;
-    background-color: green;
-    height: 3rem;
+    margin: auto;
+  }
+
+  .card {
+    width: 70%;
+    height: 40vh;
+  }
+  .catched {
+    width: 70%;
+    height: 40vh;
+  }
+  .span {
+    display: none;
+  }
+  .catchContainer {
+    grid-template-columns: auto;
+  }
+  .darkCatch {
+    background-color: rgb(19, 12, 12);
+    color: #fff;
+  }
+
+  .favoriteContainer {
+    grid-template-columns: auto;
+  }
 }
